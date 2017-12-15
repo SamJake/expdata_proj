@@ -10,10 +10,12 @@ coal_comb_sec <- subset(src_class,EI.Sector %in% coal_sec)
 
 #It has 80 unique entries for SCC
 coal_data <- merge(data,coal_comb_sec,by="SCC")
+coal_data <- group_by(coal_data,EI.Sector,year) %>% summarise(sum(Emissions))
+names(coal_data)[3] <- "Emissions"
 
 #Plotting...
 setwd("C:/Users/SamJacobJulian/Desktop/Rstd/expdata_proj")
-png(filename = "./Images/plot4.png",width=780, height=480)     
-ggplot(coal_data,aes(year,Emissions,color=EI.Sector))+geom_point()+facet_grid(~EI.Sector)+
+png(filename = "./Images/plot4.png")     
+ggplot(coal_data,aes(year,Emissions,color=EI.Sector))+geom_point(size=2)+geom_line()+
   ggtitle("Fuel Combustion - Coal in US over the years")
 dev.off()
