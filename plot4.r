@@ -15,7 +15,7 @@ names(coal_data)[3] <- "Emissions"
 
 #Plotting...
 setwd("C:/Users/SamJacobJulian/Desktop/Rstd/expdata_proj")
-png(filename = "./Images/plot4.png")     
+png(filename = "./Images/plot4.png",width = 780,height = 480)     
 ggplot(coal_data,aes(year,Emissions,color=EI.Sector))+geom_point(size=2)+geom_line()+
   ggtitle("Fuel Combustion - Coal in US over the years")
 dev.off()

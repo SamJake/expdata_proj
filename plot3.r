@@ -29,7 +29,7 @@ type_df2 <- melt(type_df,id="year")
 
 #Plotting...
 setwd("C:/Users/SamJacobJulian/Desktop/Rstd/expdata_proj")
-png(filename = "./Images/plot3.png")
+png(filename = "./Images/plot3.png",width = 780,height = 480)
 ggplot(type_df2,aes(year,value))+geom_line(aes(col=variable))+geom_point(size=2,aes(col=variable))+
 ggtitle("Baltimore City PM25 by type")+
 xlab("Year")+ylab("Emission in tons")  

@@ -13,7 +13,7 @@ names(veh_grouped_data)[3] <- "Emissions"
 
 #Plotting...
 setwd("C:/Users/SamJacobJulian/Desktop/Rstd/expdata_proj")
-png(filename = "./Images/plot5.png")     
+png(filename = "./Images/plot5.png",width = 780,height = 480)     
 ggplot(veh_grouped_data,aes(year,Emissions,color=EI.Sector))+geom_point(size=2)+geom_line()+
   ggtitle("Vehicle Emissions in Baltimore over the years")
 dev.off()
